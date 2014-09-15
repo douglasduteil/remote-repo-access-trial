@@ -15,7 +15,7 @@ var pkg = require(path.resolve(process.cwd(), 'package.json'));
 gulp.task('release', function(cb){
   run(
     'bump',
-    'sync',
+    '_update_config',
     '_commit_bump',
     '_push_bump',
     cb);
@@ -52,9 +52,7 @@ gulp.task('_push_bump', function(cb){
   });
 });
 
-gulp.task('sync', function(cb){
-  setTimeout(function () {
-    cb();
-  }, 100);
-});
 
+gulp.task('_update_config'), function(){
+  pkg = require(path.resolve(process.cwd(), 'package.json'));
+};
