@@ -1,6 +1,7 @@
 'use strict';
 
 var path = require('path');
+var exec = require('child_process').exec;
 
 var gulp = require('gulp');
 var bump = require('gulp-bump');
@@ -28,4 +29,10 @@ gulp.task('bump', function(){
   gulp.src('./*.json')
     .pipe(bump({type:'minor'}))
     .pipe(gulp.dest('./'));
+});
+
+gulp.task('_commit_bump', function(cb){
+  exec('git commit -a -m "chore(release): v' + pkg.version + '"', {}, function (err) {
+    cb(err);
+  });
 });
