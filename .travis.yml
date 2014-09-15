@@ -7,3 +7,7 @@ after_success:
 - git config --global user.email "tracis@ci.org"
 - git config --global user.name "Travis Bot"
 - gulp publish
+
+cache:
+  directories:
+    - node_modules
