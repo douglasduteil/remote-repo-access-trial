@@ -1,10 +1,12 @@
 'use strict';
 
 var path = require('path');
+var fs = require('fs');
 var exec = require('child_process').exec;
 
 var gulp = require('gulp');
 var bump = require('gulp-bump');
+var   conventionalChangelog = require('conventional-changelog');
 
 var deploy = require('dd-deploy');
 var run = require('run-sequence');
@@ -14,6 +16,7 @@ var run = require('run-sequence');
 gulp.task('release', function(cb){
   run(
     'bump',
+    'updateChangeLog',
     '_commit_bump',
     '_push_bump',
     cb);
@@ -37,7 +40,7 @@ gulp.task('publish', function (cb) {
 // Semantic
 gulp.task('bump', function(){
   return gulp.src('./*.json')
-    .pipe(bump())
+    .pipe(bump( ))
     .pipe(gulp.dest('./'));
 });
 
@@ -56,3 +59,21 @@ gulp.task('_push_bump', function(cb){
   });
 });
 
+gulp.task('updateChangeLog', function(cb){
+  function changeParsed(err, log){
+    if (err) {
+      return cb(err);
+    }
+    fs.writeFile('CHANGELOG.md', log, cb);
+  }
+
+  // FORCE up to date data
+  // the 'package.json' can change in the previous tasks
+  var pkg = require(path.resolve(process.cwd(), 'package.json'));
+
+  conventionalChangelog({
+    repository: pkg.repository.url,
+    version: pkg.version
+  }, changeParsed);
+
+});

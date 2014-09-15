@@ -1,6 +1,6 @@
 {
   "name": "remote-repo-access-trial",
-  "version": "0.16.0",
+  "version": "0.16.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/douglasduteil/remote-repo-access-trial",
   "devDependencies": {
+    "conventional-changelog": "0.0.11",
     "dd-deploy": "git+https://git@github.com/douglasduteil/dd-deploy.git",
     "gulp": "^3.8.8",
     "gulp-bump": "^0.1.11",
