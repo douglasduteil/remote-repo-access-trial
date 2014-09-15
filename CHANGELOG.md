@@ -1,3 +1,11 @@
+### 0.16.12 (2014-09-15)
+
+
+#### Features
+
+* **index:** add FAA comment ([fc551c7d](https://github.com/douglasduteil/remote-repo-access-trial.git/commit/fc551c7de0fb2c22cfbc5b0e0356f35118c93e11))
+
+
 ### 0.16.11 (2014-09-15)
 
 
