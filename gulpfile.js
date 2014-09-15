@@ -64,7 +64,7 @@ gulp.task('_tag_bump', function(cb){
 });
 
 gulp.task('_push_bump', function(cb){
-  exec('git push origin master --all', {}, function (err) {
+  exec('git push origin master --follow-tags', {}, function (err) {
     cb(err);
   });
 });
