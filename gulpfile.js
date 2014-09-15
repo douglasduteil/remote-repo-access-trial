@@ -18,6 +18,7 @@ gulp.task('release', function(cb){
     'bump',
     'updateChangeLog',
     '_commit_bump',
+    '_tag_bump',
     '_push_bump',
     cb);
 });
@@ -53,8 +54,17 @@ gulp.task('_commit_bump', function(cb){
   });
 });
 
+gulp.task('_tag_bump', function(cb){
+  // FORCE up to date data
+  // the 'package.json' can change in the previous tasks
+  var pkg = require(path.resolve(process.cwd(), 'package.json'));
+  exec('git tag src' + pkg.version , {}, function (err) {
+    cb(err);
+  });
+});
+
 gulp.task('_push_bump', function(cb){
-  exec('git push origin master ', {}, function (err) {
+  exec('git push origin master --tags', {}, function (err) {
     cb(err);
   });
 });
@@ -74,7 +84,8 @@ gulp.task('updateChangeLog', function(cb){
   conventionalChangelog({
     repository: pkg.repository.url,
     version: pkg.version,
-    to: pkg.version
+    to: 'src' + pkg.version,
+    from: 'src0.0.0'
   }, changeParsed);
 
 });
