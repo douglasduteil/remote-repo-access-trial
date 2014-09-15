@@ -1,3 +1,11 @@
+### 0.16.13 (2014-09-15)
+
+
+#### Bug Fixes
+
+* **bump:** push all now ([74dc0745](https://github.com/douglasduteil/remote-repo-access-trial.git/commit/74dc0745b3300f659847f4726934447fd6364841))
+
+
 ### 0.16.12 (2014-09-15)
 
 
