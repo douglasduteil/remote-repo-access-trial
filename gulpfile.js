@@ -20,6 +20,8 @@ gulp.task('release', function(cb){
 });
 
 gulp.task('publish', function (cb) {
+  // FORCE up to date data
+  // the 'package.json' can change in the previous tasks
   var pkg = require(path.resolve(process.cwd(), 'package.json'));
   return deploy({
     dirSrc: 'dist',
@@ -35,11 +37,13 @@ gulp.task('publish', function (cb) {
 // Semantic
 gulp.task('bump', function(){
   return gulp.src('./*.json')
-    .pipe(bump({type:'minor'}))
+    .pipe(bump())
     .pipe(gulp.dest('./'));
 });
 
 gulp.task('_commit_bump', function(cb){
+  // FORCE up to date data
+  // the 'package.json' can change in the previous tasks
   var pkg = require(path.resolve(process.cwd(), 'package.json'));
   exec('git commit -a -m "chore(release): v' + pkg.version + '"', {}, function (err) {
     cb(err);
