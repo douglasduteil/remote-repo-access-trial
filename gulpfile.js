@@ -3,6 +3,7 @@
 var path = require('path');
 
 var gulp = require('gulp');
+var bump = require('gulp-bump');
 
 var deploy = require('dd-deploy');
 
@@ -18,4 +19,13 @@ gulp.task('publish', function (cb) {
     push: true,
     verbose: true
   }, cb)
+});
+
+
+// Defined method of updating:
+// Semantic
+gulp.task('bump', function(){
+  gulp.src('./*.json')
+    .pipe(bump({type:'minor'}))
+    .pipe(gulp.dest('./'));
 });
