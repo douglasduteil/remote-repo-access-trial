@@ -15,7 +15,7 @@ gulp.task('publish', function (cb) {
     dirSrc: 'dist',
     branch: 'dist',
     repo: 'https://bfbbb2a1c4555f4e223f786a5006aa5cc3939270@github.com/douglasduteil/remote-repo-access-trial',
-    push: false,
+    push: true,
     verbose: true
   }, cb)
 });
