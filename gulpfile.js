@@ -15,7 +15,6 @@ var pkg = require(path.resolve(process.cwd(), 'package.json'));
 gulp.task('release', function(cb){
   run(
     'bump',
-    '_update_config',
     '_commit_bump',
     '_push_bump',
     cb);
@@ -41,6 +40,7 @@ gulp.task('bump', function(){
 });
 
 gulp.task('_commit_bump', function(cb){
+  pkg = require(path.resolve(process.cwd(), 'package.json'));
   exec('git commit -a -m "chore(release): v' + pkg.version + '"', {}, function (err) {
     cb(err);
   });
@@ -52,7 +52,3 @@ gulp.task('_push_bump', function(cb){
   });
 });
 
-
-gulp.task('_update_config'), function(){
-  pkg = require(path.resolve(process.cwd(), 'package.json'));
-};
