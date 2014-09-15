@@ -1,6 +1,6 @@
 {
   "name": "remote-repo-access-trial",
-  "version": "0.16.7",
+  "version": "0.16.8",
   "description": "",
   "main": "index.js",
   "scripts": {
