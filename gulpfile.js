@@ -24,6 +24,7 @@ gulp.task('publish', function (cb) {
   return deploy({
     dirSrc: 'dist',
     branch: 'dist',
+    tag: 'v' + pkg.version,
     push: true,
     verbose: true
   }, cb)
