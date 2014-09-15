@@ -4,4 +4,6 @@ node_js:
 - '0.10'
 
 after_success:
+- git config --global user.email "tracis@ci.org"
+- git config --global user.name "Travis Bot"
 - gulp publish
