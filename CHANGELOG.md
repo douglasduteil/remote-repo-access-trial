@@ -1,3 +1,11 @@
+### 0.16.11 (2014-09-15)
+
+
+#### Bug Fixes
+
+* **changelog:** auto from/tp ([f7f6c178](https://github.com/douglasduteil/remote-repo-access-trial.git/commit/f7f6c17870617d846fc46bf05f9612026c28c737))
+
+
 ### 0.16.10 (2014-09-15)
 
 
