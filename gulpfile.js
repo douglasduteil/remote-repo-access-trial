@@ -9,7 +9,6 @@ var bump = require('gulp-bump');
 var deploy = require('dd-deploy');
 var run = require('run-sequence');
 
-var pkg = require(path.resolve(process.cwd(), 'package.json'));
 
 
 gulp.task('release', function(cb){
@@ -21,6 +20,7 @@ gulp.task('release', function(cb){
 });
 
 gulp.task('publish', function (cb) {
+  var pkg = require(path.resolve(process.cwd(), 'package.json'));
   return deploy({
     dirSrc: 'dist',
     branch: 'dist',
@@ -40,7 +40,7 @@ gulp.task('bump', function(){
 });
 
 gulp.task('_commit_bump', function(cb){
-  pkg = require(path.resolve(process.cwd(), 'package.json'));
+  var pkg = require(path.resolve(process.cwd(), 'package.json'));
   exec('git commit -a -m "chore(release): v' + pkg.version + '"', {}, function (err) {
     cb(err);
   });
