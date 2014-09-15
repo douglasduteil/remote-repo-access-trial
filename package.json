@@ -19,6 +19,7 @@
   "devDependencies": {
     "dd-deploy": "git+https://git@github.com/douglasduteil/dd-deploy.git",
     "gulp": "^3.8.8",
-    "gulp-bump": "^0.1.11"
+    "gulp-bump": "^0.1.11",
+    "run-sequence": "^0.3.6"
   }
 }
