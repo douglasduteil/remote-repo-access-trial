@@ -15,7 +15,6 @@ var pkg = require(path.resolve(process.cwd(), 'package.json'));
 gulp.task('release', function(cb){
   run(
     'bump',
-    'sync',
     '_commit_bump',
     '_push_bump',
     cb);
@@ -34,7 +33,7 @@ gulp.task('publish', function (cb) {
 // Defined method of updating:
 // Semantic
 gulp.task('bump', function(){
-  gulp.src('./*.json')
+  return gulp.src('./*.json')
     .pipe(bump({type:'minor'}))
     .pipe(gulp.dest('./'));
 });
@@ -51,8 +50,3 @@ gulp.task('_push_bump', function(cb){
   });
 });
 
-gulp.task('sync', function(cb){
-  setTimeout(function () {
-    cb();
-  }, 0);
-});
