@@ -83,9 +83,7 @@ gulp.task('updateChangeLog', function(cb){
 
   conventionalChangelog({
     repository: pkg.repository.url,
-    version: pkg.version,
-    to: 'src' + pkg.version,
-    from: 'src0.0.0'
+    version: pkg.version
   }, changeParsed);
 
 });
