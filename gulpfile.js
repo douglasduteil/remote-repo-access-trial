@@ -55,5 +55,5 @@ gulp.task('_push_bump', function(cb){
 gulp.task('sync', function(cb){
   setTimeout(function () {
     cb();
-  }, 100);
+  }, 0);
 });
