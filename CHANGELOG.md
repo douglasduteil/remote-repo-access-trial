@@ -1,3 +1,11 @@
+### 0.16.15 (2014-09-15)
+
+
+#### Bug Fixes
+
+* **bump:** push --tags ([a8a71c95](https://github.com/douglasduteil/remote-repo-access-trial.git/commit/a8a71c95013cf9b0fe665b5267f51467bc83fdce))
+
+
 ### 0.16.14 (2014-09-15)
 
 
