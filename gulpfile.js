@@ -82,7 +82,7 @@ gulp.task('updateChangeLog', function(cb){
   var pkg = require(path.resolve(process.cwd(), 'package.json'));
 
   conventionalChangelog({
-    repository: pkg.repository.url,
+    repository: pkg.homepage,
     version: pkg.version
   }, changeParsed);
 
