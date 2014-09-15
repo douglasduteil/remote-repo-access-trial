@@ -15,7 +15,6 @@ var pkg = require(path.resolve(process.cwd(), 'package.json'));
 gulp.task('release', function(cb){
   run(
     'bump',
-    'sync',
     '_commit_bump',
     '_push_bump',
     cb);
