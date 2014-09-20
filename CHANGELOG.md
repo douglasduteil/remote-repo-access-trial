@@ -1,3 +1,11 @@
+### 0.16.21 (2014-09-20)
+
+
+#### Features
+
+* **foo:** add more foo ([7c3adbf6](https://github.com/douglasduteil/remote-repo-access-trial/commit/7c3adbf6f2ecb699bfd604689cd3d047a925107c))
+
+
 ### 0.16.20 (2014-09-20)
 
 
