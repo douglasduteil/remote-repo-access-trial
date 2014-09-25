@@ -29,7 +29,7 @@ gulp.task('release', function(cb){
     cb);
 });
 
-gulp.task('trial', function(){
+gulp.task('old-trial', function(){
   var deployor = function(){};
   deployor.env = {
     verbose: true,
