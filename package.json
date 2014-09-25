@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/douglasduteil/remote-repo-access-trial",
   "devDependencies": {
+    "bluebird": "^2.3.2",
+    "change-case": "^2.1.5",
     "conventional-changelog": "0.0.11",
     "dd-deploy": "git+https://git@github.com/douglasduteil/dd-deploy.git",
     "gulp": "^3.8.8",

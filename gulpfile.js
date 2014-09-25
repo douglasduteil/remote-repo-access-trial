@@ -6,12 +6,18 @@ var exec = require('child_process').exec;
 
 var gulp = require('gulp');
 var bump = require('gulp-bump');
-var   conventionalChangelog = require('conventional-changelog');
+var conventionalChangelog = require('conventional-changelog');
 
-var deploy = require('dd-deploy');
+//var deploy = require('dd-deploy');
+var Deployor = require('dd-deploy');
 var run = require('run-sequence');
 
 
+var changeCase = require('change-case');
+var Promise = require('bluebird');
+Error.stackTraceLimit = 25;
+Promise.longStackTraces();
+exec = Promise.promisify(require("child_process").exec)
 
 gulp.task('release', function(cb){
   run(
@@ -21,6 +27,106 @@ gulp.task('release', function(cb){
     '_tag_bump',
     '_push_bump',
     cb);
+});
+
+gulp.task('trial', function(){
+  var deployor = function(){};
+  deployor.env = {
+    verbose: true,
+    branch: 'master',
+    cloneLocation: '.tmp/master'
+  };
+
+  deployor.exec = function(cmd){
+    if (deployor.env.verbose){
+      console.log('>> ', cmd);
+    }
+    return exec(cmd, {
+      env : deployor.env,
+      maxBuffer: 20*1024*1024
+    });
+  };
+
+  deployor.config = function(){
+    return deployor.exec('git config --get remote.origin.url')
+      .spread(function(out){
+        deployor.env.repoUrl = process.env.REPO || String(out).split(/[\n\r]/).shift();
+      })
+      .catch(function(){
+        throw new Error('Can\'t get no remote.origin.url !');
+      })
+      .finally(function(){
+        Object.keys(deployor.env).forEach(function(key){
+          deployor.env[changeCase.snakeCase(key).toUpperCase()] = deployor.env[key];
+        });
+
+        console.log(deployor.env);
+      });
+
+  };
+/*
+  // Get the remote.origin.url
+  res = e('git config --get remote.origin.url');
+  if (res.code > 0) throw new Error('Can\'t get no remote.origin.url !');
+
+  options.repoUrl = process.env.REPO || String(res.output).split(/[\n\r]/).shift();
+  if (!options.repoUrl) throw new Error('No repo link !');
+*/
+
+
+  var e = deployor.exec;
+
+  return deployor.config()
+  .then(e.bind(null, 'whoami'))
+  .tap(console.log)
+  .then(e.bind(null, 'git clone --branch=$BRANCH --single-branch $REPO_URL $CLONE_LOCATION'))
+  ;
+/*
+  // Clone the repo branch to a special location (clonedRepoLocation)
+  res = e('git clone --branch=$BRANCH --single-branch $REPO_URL $CLONE_LOCATION');
+  if (res.code > 0) {
+    // try again without banch options
+    res = e('git clone <%= repoUrl %> <%= cloneLocation %>');
+    if (res.code > 0) throw new Error('Can\'t clone !');
+  }*/
+
+/*
+  function trial(out, deployor){
+    exec('cd $CLONE_LOCATION', {
+      env : deployor.env
+    })
+    .then()
+  }
+
+  return deployor({
+
+  })
+  .then(deployor.cleanTmp)
+  .then(deployor.cloneBranch)
+  .spread(trial)
+  .then(exec('$GIT status', {
+    env : {
+      GIT : 'git'
+    }.
+  })
+  .spread(function(streams){
+    console.log(streams);
+  });*/
+/*
+  var deployor = new Deployor({
+    verbose : true
+  });
+  deployor.cloneRepo({
+    branch: 'dist'
+  })
+*/
+  // deploy.commit => ( msg )
+  // deploy.tag => ( sdf )
+  // deploy.push => ()
+  //
+
+
+
 });
 
 gulp.task('publish', function (cb) {
