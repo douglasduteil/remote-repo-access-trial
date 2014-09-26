@@ -44,12 +44,7 @@ gulp.task('dist-trial', function(){
   // FORCE up to date data
   // the 'package.json' can change in the previous tasks
   var pkg = require(path.resolve(process.cwd(), 'package.json'));
-  var e = function(cmd){
-    if (true){
-      console.log('$', chalk.cyan(cmd));
-    }
-    return sh.exec(cmd);
-  };
+
 
   function Deployor(options){
 
@@ -65,6 +60,15 @@ gulp.task('dist-trial', function(){
 
     //this.dirSrc = path.resolve(path.join(this.origin_cwd, this.options.dirSrc));
     //this.cloneLocation = path.resolve(path.join(this.origin_cwd, this.options.cloneLocation));
+  }
+
+  Deployor.verbose = true;
+
+  var e = function(cmd){
+    if (Deployor.verbose){
+      console.log('$', chalk.cyan(cmd));
+    }
+    return sh.exec(cmd);
   };
 
   Deployor.defaults = {
@@ -73,17 +77,18 @@ gulp.task('dist-trial', function(){
 
   Deployor.cloneRepoBranch = function cloneRepoBranch(branchName, destPath, options){
     var cwd = process.cwd();
-    var options = {
+
+    options = {
       cwd : cwd
     };
 
     destPath = path.resolve(path.join(cwd, destPath));
 
     envSave = process.env;
-    process.env = {
+    _.assign(process.env, {
       branch: branchName,
       cloneLocation : destPath
-    };
+    });
 
     //var cloneLocation = path.resolve(path.join(cwd, this.options.cloneLocation));
 
@@ -160,7 +165,8 @@ gulp.task('dist-trial', function(){
     },
     commit : function(commitMessage){
       process.env.COMMIT_MESSAGE = commitMessage;
-      e('git commit -am \'$COMMIT_MESSAGE\'');
+      e('git config --global user.email');
+      e('git commit -am $COMMIT_MESSAGE');
     },
     tag : function(tagMessage){
       process.env.TAG_MESSAGE = tagMessage;
