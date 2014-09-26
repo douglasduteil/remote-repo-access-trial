@@ -165,8 +165,8 @@ gulp.task('dist-trial', function(){
     },
     commit : function(commitMessage){
       process.env.COMMIT_MESSAGE = commitMessage;
-      e('git config --global user.email');
-      e('git commit -am $COMMIT_MESSAGE');
+      e('git add .');
+      e('git commit -m "$COMMIT_MESSAGE"');
     },
     tag : function(tagMessage){
       process.env.TAG_MESSAGE = tagMessage;
