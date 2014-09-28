@@ -8,16 +8,9 @@ var gulp = require('gulp');
 var bump = require('gulp-bump');
 var conventionalChangelog = require('conventional-changelog');
 
-//var deploy = require('dd-deploy');
-var Deployor = require('dd-deploy');
 var run = require('run-sequence');
 
-
-var changeCase = require('change-case');
-var Promise = require('bluebird');
-Error.stackTraceLimit = 25;
-Promise.longStackTraces();
-exec = Promise.promisify(require("child_process").exec)
+var Deployor = require('node-git-deployor');
 
 gulp.task('release', function(cb){
   run(
@@ -30,7 +23,6 @@ gulp.task('release', function(cb){
 
 ////
 
-var Deployor = require('node-git-deployor');
 
 gulp.task('dist-trial', function(){
   // FORCE up to date data
