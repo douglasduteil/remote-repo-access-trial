@@ -1,3 +1,16 @@
+### 0.16.22 (2014-09-28)
+
+
+#### Features
+
+* **foo:**
+  * SAVE ([8a28b4dd](https://github.com/douglasduteil/remote-repo-access-trial/commit/8a28b4dd2897e5b15ec27da6d231494a56ff289e))
+  * add more foo ([9c236341](https://github.com/douglasduteil/remote-repo-access-trial/commit/9c236341f1879d941a284b0f242181fcaf174b6c))
+  * add more foo ([cbb9daf2](https://github.com/douglasduteil/remote-repo-access-trial/commit/cbb9daf2c6029530f66b7c87e34f37b3bfdbd82a))
+  * add more foo ([a8f24e70](https://github.com/douglasduteil/remote-repo-access-trial/commit/a8f24e702f44fd911fe7c3fcae3161bdc4d9dc5c))
+* **gulp:** new push release system ([c7f7dc54](https://github.com/douglasduteil/remote-repo-access-trial/commit/c7f7dc54ea836f242b7ce13e13b34424d182523d))
+
+
 ### 0.16.21 (2014-09-20)
 
 
