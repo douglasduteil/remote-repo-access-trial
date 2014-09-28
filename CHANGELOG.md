@@ -1,3 +1,11 @@
+### 0.16.32 (2014-09-28)
+
+
+#### Features
+
+* **dist:** add "HA ?" ([93889e85](https://github.com/douglasduteil/remote-repo-access-trial/commit/93889e85bf4788243bab478f27ad59c13222a08a))
+
+
 ### 0.16.31 (2014-09-28)
 
 
