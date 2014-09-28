@@ -24,22 +24,6 @@ gulp.task('release', function(cb){
 ////
 
 
-gulp.task('dist-trial', function(){
-  // FORCE up to date data
-  // the 'package.json' can change in the previous tasks
-  var pkg = require(path.resolve(process.cwd(), 'package.json'));
-
-  var distWorkspace = Deployor.cloneRepoBranch('dist', '.tmp/dist', {
-    orphan : true
-  });
-
-  distWorkspace.extraClean();
-  distWorkspace.copy('dist');
-  distWorkspace.commit('Update ' + new Date().toISOString());
-  distWorkspace.tag('v' + pkg.version);
-  distWorkspace.push();
-});
-
 gulp.task('push release commit', function(){
   // FORCE up to date data
   // the 'package.json' can change in the previous tasks
@@ -68,17 +52,20 @@ gulp.task('ci:publishing', function (cb) {
   run('publish', cb);
 });
 
-gulp.task('publish', function (cb) {
+gulp.task('dist-trial', function(){
   // FORCE up to date data
   // the 'package.json' can change in the previous tasks
   var pkg = require(path.resolve(process.cwd(), 'package.json'));
-  return deploy({
-    dirSrc: 'dist',
-    branch: 'dist',
-    tag: 'v' + pkg.version,
-    push: true,
-    verbose: true
-  }, cb)
+
+  var distWorkspace = Deployor.cloneRepoBranch('dist', '.tmp/dist', {
+    orphan : true
+  });
+
+  distWorkspace.extraClean();
+  distWorkspace.copy('dist');
+  distWorkspace.commit('Update ' + new Date().toISOString());
+  distWorkspace.tag('v' + pkg.version);
+  distWorkspace.push();
 });
 
 
