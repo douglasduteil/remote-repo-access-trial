@@ -1,3 +1,11 @@
+### 0.16.39 (2014-09-28)
+
+
+#### Features
+
+* **dist:** change dist file content ([9199e6e8](https://github.com/douglasduteil/remote-repo-access-trial/commit/9199e6e8a03649cde4372b66a5b4e899157c2068))
+
+
 ### 0.16.38 (2014-09-28)
 
 
