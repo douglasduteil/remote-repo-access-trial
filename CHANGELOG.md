@@ -1,3 +1,11 @@
+### 0.16.25 (2014-09-28)
+
+
+#### Features
+
+* **publish:** replace old deploy system ([74ced3ab](https://github.com/douglasduteil/remote-repo-access-trial/commit/74ced3abae59a227fc87fcf7d419b4b53e9bc45e))
+
+
 ### 0.16.24 (2014-09-28)
 
 
