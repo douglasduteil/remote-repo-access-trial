@@ -6,7 +6,7 @@ node_js:
 after_success:
 - git config --global user.email "tracis@ci.org"
 - git config --global user.name "Travis Bot"
-- gulp publish
+- gulp ci:publishing
 
 cache:
   directories:

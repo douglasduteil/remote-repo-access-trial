@@ -52,6 +52,22 @@ gulp.task('push release commit', function(){
 
 ////
 
+
+gulp.task('ci:publishing', function (cb) {
+
+  var allowPushOnRepo =
+    // On TRAVIS source tag.
+    (process.env.TRAVIS == 'true') && // on travis
+    (process.env.TRAVIS_PULL_REQUEST == 'false') && //  no a PR
+    /^src\d+\.\d+\.\d+.*$/.test(process.env.TRAVIS_BRANCH); // is a source tag
+
+  if (!allowPushOnRepo){
+    return cb();
+  }
+
+  run('publish', cb);
+});
+
 gulp.task('publish', function (cb) {
   // FORCE up to date data
   // the 'package.json' can change in the previous tasks
