@@ -1,3 +1,11 @@
+### 0.16.29 (2014-09-28)
+
+
+#### Features
+
+* **dep:** allow better deployor version ([5892c1c5](https://github.com/douglasduteil/remote-repo-access-trial/commit/5892c1c5f5eb09aa3d2ba5929a8ee72f1f92003b))
+
+
 ### 0.16.28 (2014-09-28)
 
 
