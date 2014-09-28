@@ -60,7 +60,7 @@ gulp.task('publish', function(){
   var distWorkspace = Deployor.cloneRepoBranch({
     orphan : true,
     branch : 'dist',
-    cloneLocation : '.tmp/dist'
+    cloneLocation : './.tmp/dist'
   });
 
   distWorkspace.extraClean();
