@@ -57,8 +57,10 @@ gulp.task('publish', function(){
   // the 'package.json' can change in the previous tasks
   var pkg = require(path.resolve(process.cwd(), 'package.json'));
 
-  var distWorkspace = Deployor.cloneRepoBranch('dist', '.tmp/dist', {
-    orphan : true
+  var distWorkspace = Deployor.cloneRepoBranch({
+    orphan : true,
+    branch : 'dist',
+    cloneLocation : './dist'
   });
 
   distWorkspace.extraClean();
