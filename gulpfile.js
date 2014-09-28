@@ -23,9 +23,7 @@ gulp.task('release', function(cb){
   run(
     'bump',
     'updateChangeLog',
-    '_commit_bump',
-    '_tag_bump',
-    '_push_bump',
+    'push release commit',
     cb);
 });
 
@@ -50,7 +48,7 @@ gulp.task('dist-trial', function(){
   distWorkspace.push();
 });
 
-gulp.task('release', function(){
+gulp.task('push release commit', function(){
   // FORCE up to date data
   // the 'package.json' can change in the previous tasks
   var pkg = require(path.resolve(process.cwd(), 'package.json'));
@@ -82,30 +80,6 @@ gulp.task('bump', function(){
   return gulp.src('./*.json')
     .pipe(bump( ))
     .pipe(gulp.dest('./'));
-});
-
-gulp.task('_commit_bump', function(cb){
-  // FORCE up to date data
-  // the 'package.json' can change in the previous tasks
-  var pkg = require(path.resolve(process.cwd(), 'package.json'));
-  exec('git commit -a -m "chore(release): v' + pkg.version + '"', {}, function (err) {
-    cb(err);
-  });
-});
-
-gulp.task('_tag_bump', function(cb){
-  // FORCE up to date data
-  // the 'package.json' can change in the previous tasks
-  var pkg = require(path.resolve(process.cwd(), 'package.json'));
-  exec('git tag src' + pkg.version , {}, function (err) {
-    cb(err);
-  });
-});
-
-gulp.task('_push_bump', function(cb){
-  exec('git push origin master --tags', {}, function (err) {
-    cb(err);
-  });
 });
 
 gulp.task('updateChangeLog', function(cb){
