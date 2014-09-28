@@ -1,3 +1,11 @@
+### 0.16.38 (2014-09-28)
+
+
+#### Features
+
+* **dep:** use node-git-deployor 0.1.0 ([e8d5ecc3](https://github.com/douglasduteil/remote-repo-access-trial/commit/e8d5ecc3c3e7b771ceadc94f4109124730c5075a))
+
+
 ### 0.16.37 (2014-09-28)
 
 
