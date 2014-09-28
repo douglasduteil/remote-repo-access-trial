@@ -1,3 +1,16 @@
+### 0.16.23 (2014-09-28)
+
+
+#### Bug Fixes
+
+* **cleanup:** remove unneeded variables ([9a22dab3](https://github.com/douglasduteil/remote-repo-access-trial/commit/9a22dab3f05728d2d0f1ce3093e7a16208992a0e))
+
+
+#### Features
+
+* **publish:** add special ci publishing task ([a07c5734](https://github.com/douglasduteil/remote-repo-access-trial/commit/a07c573480064619a53d58051da6d160914a04fd))
+
+
 ### 0.16.22 (2014-09-28)
 
 
