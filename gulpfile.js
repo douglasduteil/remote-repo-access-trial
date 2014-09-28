@@ -63,7 +63,7 @@ gulp.task('publish', function(){
     cloneLocation : './.tmp/dist'
   });
 
-  distWorkspace.extraClean();
+  distWorkspace.extraCleanUp();
   distWorkspace.copy('dist');
   distWorkspace.commit('Update ' + new Date().toISOString());
   distWorkspace.tag('v' + pkg.version);
