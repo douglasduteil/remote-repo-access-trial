@@ -52,7 +52,7 @@ gulp.task('ci:publishing', function (cb) {
   run('publish', cb);
 });
 
-gulp.task('dist-trial', function(){
+gulp.task('publish', function(){
   // FORCE up to date data
   // the 'package.json' can change in the previous tasks
   var pkg = require(path.resolve(process.cwd(), 'package.json'));
