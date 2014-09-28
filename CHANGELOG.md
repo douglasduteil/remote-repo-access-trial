@@ -1,3 +1,11 @@
+### 0.16.30 (2014-09-28)
+
+
+#### Bug Fixes
+
+* **deploy:** resolve destPath and cloneLocation confusion ([4fb9c49a](https://github.com/douglasduteil/remote-repo-access-trial/commit/4fb9c49a5e44a66385f03afd2cf6698b47d2924b))
+
+
 ### 0.16.29 (2014-09-28)
 
 
