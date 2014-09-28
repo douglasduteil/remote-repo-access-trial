@@ -1,3 +1,11 @@
+### 0.16.26 (2014-09-28)
+
+
+#### Bug Fixes
+
+* **publish:** task typo ([1934ddf1](https://github.com/douglasduteil/remote-repo-access-trial/commit/1934ddf1ef75695cadd7be27b6825221fd5ad862))
+
+
 ### 0.16.25 (2014-09-28)
 
 
