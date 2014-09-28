@@ -1,3 +1,11 @@
+### 0.16.24 (2014-09-28)
+
+
+#### Bug Fixes
+
+* **travis:** wrong dep description ([a27b2af4](https://github.com/douglasduteil/remote-repo-access-trial/commit/a27b2af44bc9c0cd6b7f519a5fefcc5432cb72b1))
+
+
 ### 0.16.23 (2014-09-28)
 
 
