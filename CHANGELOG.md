@@ -1,3 +1,11 @@
+### 0.16.31 (2014-09-28)
+
+
+#### Bug Fixes
+
+* **deployor:** more specific clone temp path ([defd1c67](https://github.com/douglasduteil/remote-repo-access-trial/commit/defd1c67621accabd52fbb111907699e8ebd634c))
+
+
 ### 0.16.30 (2014-09-28)
 
 
